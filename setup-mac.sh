@@ -158,7 +158,7 @@ corepack prepare pnpm@8 --activate
 # ===============================
 if [[ "$ACTION" == "be" || "$ACTION" == "full" || "$INTERACTIVE" == true ]]; then
     echo "[5/17] Installing Java + jenv..."
-    brew install temurin@8 temurin@11 temurin@17 temurin@21 temurin
+    brew install temurin@11 temurin@17 temurin@21 temurin
 
     grep -qxF 'export PATH="$HOME/.jenv/bin:$PATH"' ~/.zshrc || \
         echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
