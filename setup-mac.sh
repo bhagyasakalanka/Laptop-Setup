@@ -217,15 +217,25 @@ fi
 #    IntelliJ + DBeaver + Rancher — BE / full / interactive
 # ===============================
 echo "[7/17] Installing applications..."
-brew install --cask visual-studio-code postman
 
+# 1. Define the base apps everyone gets
+APPS=(visual-studio-code postman)
+
+# 2. Add front-end / full profile apps
 if [[ "$ACTION" == "fe" || "$ACTION" == "full" || "$INTERACTIVE" == true ]]; then
-    brew install --cask google-chrome firefox
+    APPS+=(google-chrome firefox)
 fi
 
+# 3. Add back-end / full profile apps
 if [[ "$ACTION" == "be" || "$ACTION" == "full" || "$INTERACTIVE" == true ]]; then
-    brew install --cask intellij-idea-ce dbeaver-community rancher
+    APPS+=(intellij-idea-ce dbeaver-community rancher)
 fi
+
+# 4. Loop through and install each app individually
+for app in "${APPS[@]}"; do
+    echo "Installing $app..."
+    brew install --cask "$app" || echo "⚠️ $app might already exist or failed. Skipping to next..."
+done
 
 # ===============================
 # 8. VS Code Extensions
