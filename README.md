@@ -16,6 +16,17 @@ This script automates the setup of a developer laptop:
 
 ---
 
+## ⬇️ Installation
+
+Download the setup script to your laptop:
+
+```bash
+curl -O https://raw.githubusercontent.com/bhagyasakalanka/Laptop-Setup/main/setup-mac.sh
+chmod +x setup-mac.sh
+```
+
+---
+
 ## 🎯 Profiles
 
 | Profile       | Description                                             |
